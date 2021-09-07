@@ -1,17 +1,24 @@
-const produtos=(sequelize,DataTypes)=>{
-    const Produtos=sequelize.define('Produtos',{
-        nome:{
-            type:DataTypes.STRING,
-            unique:true,
-            allowNull:false
-        },
-        preco:{
-            type:DataTypes.DOUBLE,
+const produtos = (sequelize, DataTypes) => {
+  const Produtos = sequelize.define(
+    "Produtos",
+    {
+      nome: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+      },
+      preco: {
+        type: DataTypes.DOUBLE,
+      },
+      categoria: {
+        type: DataTypes.STRING,
+      },
+    },
+    {
+      tableName: "produto",
+    }
+  );
+  return Produtos;
+};
 
-        }
-    })
-    return Produtos
-
-}
-
-module.exports=produtos
+module.exports = produtos;
