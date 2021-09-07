@@ -17,7 +17,7 @@ Crie um banco de dados postgresSQL com o nome "GirlsNodePower_db"
 
 no terminal, na pasta raiz o projeto instale os seguintes módulos: 
 
-´´
+``
     npm install express
     npm install express-routes
     npm install express-validation
@@ -26,7 +26,7 @@ no terminal, na pasta raiz o projeto instale os seguintes módulos:
     npm install swagger-ui-express
     npm install swagger-autogen
     npm install sequelize pg
-´´
+``
 
 ---------------
 
