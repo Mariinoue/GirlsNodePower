@@ -5,12 +5,14 @@ const app=express()
 
 
 app.use(express.json())
-//app.use('/',routers)
+app.use('/',routers)
 
-sequelize.sync({force:true}).then(()=>{
+// usar force:true -> somente para deletar todo o banco
+// sequelize.sync({force:true}).then(()=>{
+sequelize.sync().then(()=>{
     console.log('conectado com sucesso');
 })
 
-app.listen(6060,()=>{
-    console.log(`Servidor rodando na porta 6060`);
+app.listen(3000,()=>{
+    console.log(`Servidor rodando na porta 3000`);
 })
