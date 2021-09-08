@@ -11,7 +11,7 @@ const lojas = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "loja",
+      tableName: "lojas",
     }
   );
   return Lojas;

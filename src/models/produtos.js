@@ -15,7 +15,7 @@ const produtos = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "produto",
+      tableName: "produtos",
     }
   );
   return Produtos;

@@ -14,11 +14,11 @@ const clientes = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       telefone: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.STRING,
       },
     },
     {
-      tableName: "Cliente",
+      tableName: "clientes",
     }
   );
   return Clientes;
