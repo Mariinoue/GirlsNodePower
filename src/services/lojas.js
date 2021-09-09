@@ -4,7 +4,6 @@ class LojaService {
     }
     async get() {
       const lojas = await this.lojas.findAll();
-      console.log("aqui irei mostrar lojas");
       return lojas;
     }
   }
