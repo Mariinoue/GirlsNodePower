@@ -5,7 +5,7 @@ Projeto para conclusão do desafio do curso de node
 Requisitos necessários para executar este projeto: 
  - node
  - npm
- - banco de dados postgree
+ - banco de dados postgres
 
 ## Como executar o projeto 
 
@@ -15,18 +15,25 @@ Crie um banco de dados postgresSQL com o nome "GirlsNodePower_db"
 
 ------
 
-no terminal, na pasta raiz o projeto instale os seguintes módulos: 
+no terminal, na pasta raiz o projeto  execute o comando 
+
+```
+npm install
+
+``` 
+
+ele irá instalar os seguintes módulos: 
 
 ``
-    npm install express
-    npm install express-routes
-    npm install express-validation
-    npm install pg
-    npm install sequelize
-    npm install swagger-ui-express
-    npm install swagger-autogen
-    npm install sequelize pg
-``
+    npm install express 
+    npm install express-routes 
+    npm install express-validation 
+    npm install pg 
+    npm install sequelize 
+    npm install swagger-ui-express 
+    npm install swagger-autogen 
+    npm install sequelize pg 
+`` 
 
 ---------------
 
