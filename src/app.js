@@ -16,7 +16,7 @@ app.use(express.json())
 app.use('/',routers)
 
 // usar force:true -> somente para deletar todo o banco
-// sequelize.sync({force:true}).then(()=>{
+ //sequelize.sync({force:true}).then(()=>{
 sequelize.sync().then(()=>{
     console.log('conectado com sucesso');
 })
