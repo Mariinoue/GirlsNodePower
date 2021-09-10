@@ -37,10 +37,10 @@
         "responses": {}
       }
     },
-    "/produtos/produtos": {
+    "/produtos/": {
       "get": {
         "tags": [],
-        "description": "",
+        "description": "Lista os produtos cadastrados",
         "parameters": [],
         "responses": {
           "200": {
