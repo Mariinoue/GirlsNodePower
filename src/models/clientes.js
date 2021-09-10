@@ -8,15 +8,17 @@ const clientes = (sequelize, DataTypes) => {
       },
       email: {
         type: DataTypes.STRING,
+        unique:true,
+        allowNull: false,
       },
       endereco: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
       telefone: {
         type: DataTypes.STRING,
-      },
-      observacao: {
-        type: DataTypes.STRING,
+        unique:true,
+        allowNull: false,
       }
     },
     {
