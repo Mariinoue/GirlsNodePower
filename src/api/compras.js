@@ -11,5 +11,4 @@ router.get("/compras", async (req, res) => {
   res.status(200).json(compras);
 });
 
-
 module.exports = router;

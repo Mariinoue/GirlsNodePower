@@ -37,8 +37,14 @@ ele irá instalar os seguintes módulos:
 
 ---------------
 
-para subir o servidor ( executar o projeto )
+para gerar a documentação do swagger execute: 
 
+npm run swagger 
+//script presente dentro do package.json
+
+---------------
+
+para subir o servidor ( executar o projeto )
 npm start
 
 --------------
