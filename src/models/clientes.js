@@ -9,12 +9,15 @@ const clientes = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
       },
-      endereço: {
+      endereco: {
         type: DataTypes.STRING,
       },
       telefone: {
         type: DataTypes.STRING,
       },
+      observacao: {
+        type: DataTypes.STRING,
+      }
     },
     {
       tableName: 'clientes',

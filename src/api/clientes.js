@@ -17,9 +17,9 @@ router.get("/",async(req,res)=>{
 })
 
 router.post("/",async(req,res)=>{
-  const {nome,email,endereço,telefone}=req.body
+  const {nome,email,endereco,telefone}=req.body
   try{
-    await clientesService.adicionar({nome,email,endereço,telefone})
+    await clientesService.adicionar({nome,email,endereco,telefone})
     res.status(201).send('Seu cadastro foi realizado com sucesso')
   }catch(erro){
     res.status(400).send("Não foi possvel cadastrar cliente")

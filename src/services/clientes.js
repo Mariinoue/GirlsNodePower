@@ -5,7 +5,7 @@ class ClientesService{
     }
 
     async get(){
-        const clientes=await this.clientes.findAll()
+        const clientes=await this.cliente.findAll()
         return clientes
     }
     async adicionar(clienteMGL){
