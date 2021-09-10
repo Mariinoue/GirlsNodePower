@@ -1,7 +1,6 @@
+
 const clientes = (sequelize, DataTypes) => {
-  const Clientes = sequelize.define(
-    "Clientes",
-    {
+  const Clientes = sequelize.define("Clientes",{
       nome: {
         type: DataTypes.STRING,
         //unique:true,
@@ -18,10 +17,10 @@ const clientes = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "clientes",
+      tableName: 'clientes',
     }
   );
-  return Clientes;
-};
+  return Clientes
+}
 
-module.exports = clientes;
+module.exports = clientes

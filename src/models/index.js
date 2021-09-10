@@ -1,10 +1,12 @@
 const sequelize=require('../config/sequelize')
 const Sequelize=require('sequelize')
+//const router = express.Router()
 
 const Clientes=require('./clientes')
 const Produtos=require('./produtos')
 const Lojas=require('./lojas')
 const Compras=require('./compras')
+
 
 const clientes=Clientes(sequelize,Sequelize.DataTypes)
 const produtos=Produtos(sequelize,Sequelize.DataTypes)
