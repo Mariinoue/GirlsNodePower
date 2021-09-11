@@ -1,3 +1,5 @@
+const ErrorService = require("./error");
+
 class ProdutoService {
   constructor(ProdutoModel) {
     this.produto = ProdutoModel;
@@ -6,24 +8,25 @@ class ProdutoService {
     const produtos = await this.produto.findAll();
     return produtos;
   }
-}
 
-/*async adicionar(produtoDTO) {
-    const produto = await this.produto.findOne({
+  async gravar(produto) {
+    const produtoExiste = await this.produto.findOne({
       where: {
-        nome: produtoDTO.nome,
-      },
-    });
-    if (produto != null) {
-        // --- restringir categoria ---
-      throw new Error("Já existe produto cadastrado com esse nome!");
+        nome: produto.nome
+      }
+    })
+
+    if (produtoExiste) {
+      throw new ErrorService(`O produto ${produto.nome} já está cadastrado no banco de dados!`, 400, 'Bad Request')
     }
-    try {
-      await this.produto.create(produtoDTO);
-    } catch (erro) {
-      console.erro(erro.message);
-      throw erro;
-    }
-  }*/
+
+    const dataAtual = new Date()
+    produto.createdAt = dataAtual
+    produto.updatedAt = dataAtual
+
+    const produtoGravado = this.produto.create(produto)
+    return produtoGravado
+  }
+}
 
 module.exports = ProdutoService;

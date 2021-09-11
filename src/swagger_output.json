@@ -40,11 +40,24 @@
     "/produtos/": {
       "get": {
         "tags": [],
-        "description": "Lista os produtos cadastrados",
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
           }
         }
       }
