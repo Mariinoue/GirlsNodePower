@@ -1,38 +1,53 @@
-const express = require("express");
-const { restart } = require("nodemon");
+const express = require('express');
+const { restart } = require('nodemon');
 const router = express.Router();
-const { produto } = require("../models");
-const ProdutoService = require("../services/produtos");
-const { body, check, validationResult } = require("express-validator");
+const { produtos } = require('../models');
+const ProdutoService = require('../services/produtos');
+const { body, check, validationResult } = require('express-validator');
 
-const produtoService = new ProdutoService(produto);
+const produtoService = new ProdutoService(produtos);
 
-router.get("/produtos", async (req, res) => {
-  const produtos = await produtoService.get();
-  res.status(200).json(produtos);
+router.get('/', async (req, res) => {
+  try {
+    const produtos = await produtoService.get();
+    res.status(200).json(produtos);
+  } catch (error) {
+    errorResponse(res, error)
+  }
 });
 
-/*router.post(
-  "/",
-  body("nome").not().isEmpty().trim().escape(),
-  check('preco')
-  .not()
-  .isEmpty()
-  .matches(/\d/)
-  .withMessage('O preço deve ser um número'),
-  async (req, res) => {
-      const erros = validationResult(req)
-      if(!erros.isEmpty()){
-          return res.status(400).json({ erros: erros.array()})
-      }
-    const { nome, preco } = req.body;
-    try {
-      await produtoService.adicionar({ nome, preco });
-      res.status(201).send("Produto adicionado com sucesso!");
-    } catch (erro) {
-      res.status(400).send("Não foi possivel adicionar o produto!");
+router.post('/', [
+  body('nome').notEmpty().withMessage('O atributo nome é obrigatório!'),
+  body('preco').notEmpty().isNumeric().withMessage('O atributo preço é obrigatório e deve ser um número decimal!'),
+  body('categoria').notEmpty().withMessage('O atributo categoria é obrigatório!'),
+], async (req, res) => {
+  const erros = validationResult(req)
+  try {
+    if (!erros.isEmpty()) {
+      errorResponse(res, {message: erros.array()}, 400, 'Bad request')
+    } else {
+      const body = req.body
+      const produto = await produtoService.gravar(body)
+      res.status(201).json(produto)
     }
+  } catch (e) {
+    errorResponse(res, e)
   }
-);*/
+})
+
+function errorResponse(res, error, statusCode, mensagem) {
+  statusCode = statusCode ? statusCode : 500
+  statusCode = error.statusCode ? error.statusCode : statusCode
+
+  mensagem = mensagem ? mensagem : 'Erro no servidor'
+  mensagem = error.mensagem ? error.mensagem : mensagem
+
+  const resultado = {
+    mensagem: mensagem,
+    mensagemErro: error.message
+  }
+
+  res.status(statusCode).json(resultado)
+}
 
 module.exports = router;
