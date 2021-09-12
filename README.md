@@ -15,6 +15,24 @@ Crie um banco de dados postgresSQL com o nome "GirlsNodePower_db"
 
 ------
 
+na raiz do projeto crie um arquivo chamado `.env` com as seguintes variáveis:
+```
+PORT=porta do servidor  
+DATABASE_URL=endereco do banco com os dados com os dados de conexão  
+```
+
+```
+Na raiz do projeto, deve existir um arquivo de ambiente
+Para trabalhar com diversos ambientes . 
+copie e crie o arquivo .env.exemplo para .env
+conforme o Exemplo abaixo com dados de conexão  
+
+PORT=5000
+DATABASE_URL=postgres://postgres:root@localhost:5432/GirlsNodePower_db
+```
+
+------
+
 no terminal, na pasta raiz o projeto  execute o comando 
 
 ```
@@ -53,3 +71,5 @@ Arquiterura do projeto:
 src - > códigos do projeto 
 src/api -> 
 node_modules -> dependências externas 
+
+--------------

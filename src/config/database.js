@@ -1,10 +1,5 @@
-module.exports={
+const config = require('./config')
 
-    dialect: 'postgres',
-    host:'localhost',
-    port:5432,
-    database:'GirlsNodePower_db',
-    //database:'teste_node', //apenas testando criaçaõ de tabelas em outro banco
-    username: 'postgres',
-    password:'root'
+module.exports = {
+    url: config.database.url
 }
