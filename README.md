@@ -18,7 +18,7 @@ Crie um banco de dados postgresSQL com o nome "GirlsNodePower_db"
 na raiz do projeto crie um arquivo chamado `.env` com as seguintes variáveis:
 ```
 PORT=porta do servidor  
-DATABASE_URL=endereco do banco com os dados de conexão  
+DATABASE_URL=endereco do banco com os dados com os dados de conexão  
 ```
 
 ```

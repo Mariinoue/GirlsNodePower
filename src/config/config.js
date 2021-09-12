@@ -14,7 +14,6 @@ const config = {
         port: serverPort
     },
     database: {
-        dialect: process.env.DATABASE_DIALECT,
         url: process.env.DATABASE_URL
     }
 }
