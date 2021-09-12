@@ -10,4 +10,14 @@ router.get('/',async (req,res) => {
     res.status(200).json(lojasFisicas);
 });
 
+router.post('/',async(req,res)=>{
+    const{nome,endereco}=req.body
+    try{
+        await lojaService.adicionar({nome,endereco})
+        res.status(201).send('loja registrada')
+    }catch(erro){
+        res.status(400).send('não foi cadastrar loja')
+    }
+})
+
 module.exports=router
