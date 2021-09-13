@@ -25,6 +25,7 @@ const clientes = (sequelize, DataTypes) => {
       tableName: 'clientes',
     }
   );
+
   return Clientes
 }
 

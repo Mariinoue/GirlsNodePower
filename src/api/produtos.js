@@ -3,7 +3,8 @@ const { restart } = require('nodemon');
 const router = express.Router();
 const { produtos } = require('../models');
 const ProdutoService = require('../services/produtos');
-const { body, check, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
+const errorResponse = require('./erro/error-response')
 
 const produtoService = new ProdutoService(produtos);
 
@@ -34,20 +35,5 @@ router.post('/', [
     errorResponse(res, e)
   }
 })
-
-function errorResponse(res, error, statusCode, mensagem) {
-  statusCode = statusCode ? statusCode : 500
-  statusCode = error.statusCode ? error.statusCode : statusCode
-
-  mensagem = mensagem ? mensagem : 'Erro no servidor'
-  mensagem = error.mensagem ? error.mensagem : mensagem
-
-  const resultado = {
-    mensagem: mensagem,
-    mensagemErro: error.message
-  }
-
-  res.status(statusCode).json(resultado)
-}
 
 module.exports = router;

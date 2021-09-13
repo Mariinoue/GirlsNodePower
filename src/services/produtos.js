@@ -1,4 +1,4 @@
-const ErrorService = require("./error");
+const BadRequestError = require("../api/erro/bad-request-error");
 
 class ProdutoService {
   constructor(ProdutoModel) {
@@ -17,7 +17,7 @@ class ProdutoService {
     })
 
     if (produtoExiste) {
-      throw new ErrorService(`O produto ${produto.nome} já está cadastrado no banco de dados!`, 400, 'Bad Request')
+      throw new BadRequestError(`O produto ${produto.nome} já está cadastrado no banco de dados!`)
     }
 
     const dataAtual = new Date()

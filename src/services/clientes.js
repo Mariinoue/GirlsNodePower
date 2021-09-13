@@ -1,21 +1,30 @@
+const BadRequestError = require("../api/erro/bad-request-error");
+
 class ClientesService{
-    constructor(CLienteModel){
-        this.cliente=CLienteModel
+  constructor(ClienteModel){
+      this.clienteModel = ClienteModel
 
+  }
+
+  async get(){
+      const clientes=await this.clienteModel.findAll()
+      return clientes
+  }
+  
+  async adicionar(cliente){
+    const clienteCadastrado = await this.clienteModel.findOne({
+      where: {
+        nome: cliente.nome
+      }
+    })
+  
+    if (clienteCadastrado) {
+    throw new BadRequestError(`Já existe um cadastro para o cliente ${cliente.nome}!`)
     }
 
-    async get(){
-        const clientes=await this.cliente.findAll()
-        return clientes
-    }
-    async adicionar(clienteMGL){
-        try{
-            await this.cliente.create(clienteMGL)
-        }catch(erro){
-            console.erro(erro.mensagem)
-            throw erro
-        }
-    }
+    cliente = await this.clienteModel.create(cliente)
+    return cliente
+  }
 }
 
 module.exports=ClientesService
